@@ -1,30 +1,28 @@
 const Heading = () => {
-
-  const customStyles = {
-    color: "red",
-    fontSize: "70px",
-    border: "2px solid red",
-    padding: "20px 50px"
-  }
-
   const date = new Date();
   const currentTime = date.getHours();
-// const currentTime = 16;
+  let greetings, color, customStyles;
 
-  let greetings, color;
-
+  // Set customStyles based on current time
   if (currentTime < 12) {
     greetings = "Good morning";
-    customStyles.color = "red";
+    color = "red";
   } else if (currentTime < 18) {
     greetings = "Good afternoon";
-    customStyles.color = "green";
+    color = "green";
   } else {
     greetings = "Good night";
-    customStyles.color = "blue";
+    color = "blue";
+  }
+
+  // Set customStyles object
+  customStyles = {
+    color: color,
+    fontSize: "70px",
+    border: "2px solid" + color,
+    padding: "20px 50px"
   }
 
   return <h1 className={customStyles}>{greetings}</h1>
 }
-
 export default Heading;
